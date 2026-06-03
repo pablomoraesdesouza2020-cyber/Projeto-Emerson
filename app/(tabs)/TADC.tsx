@@ -11,9 +11,9 @@ import {
   View
 } from 'react-native';
 
-import Logo from './assets/tadc.webp';
+import Logo from './assets/images/tadc.webp';
 
-import MiniLogo from './assets/minilogo.png';
+import MiniLogo from './assets/images/minilogo.png';
 
 // --- Componente de Item da Lista (Uso de Props) ---
 const ItemCompra = ({ dado }) => (
@@ -26,14 +26,12 @@ const ItemCompra = ({ dado }) => (
 
 export default function App() {
 
-  // --- Estados (useState) ---
   const [produto, setProduto] = useState('');
   const [quantidade, setQuantidade] = useState('');
   const [unidade, setUnidade] = useState('⭐');
   const [lista, setLista] = useState([]);
   const [modalVisivel, setModalVisivel] = useState(false);
 
-  // Lista de unidades disponíveis
   const opcoesUnidade = ['0⭐', '1⭐', '2⭐', '3⭐', '4⭐', '5⭐'];
 
     const funcaoInserir = () => {
@@ -50,7 +48,6 @@ export default function App() {
 };
 
 
-// --- Função para Selecionar Unidade ---
 const selecionarUnidade = (item) => {
   setUnidade(item);
   setModalVisivel(false);
