@@ -1,36 +1,28 @@
-import {
-    Alert,
-    Button,
-    Image,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
+import { Link } from 'expo-router';
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const filmes = [
   {
     id: 1,
-    titulo: 'Avatar',
-    imagem: require('./assets/avatar.webp'), 
+    titulo: 'Backrooms',
+    imagem: require('../assets/images/backroom.jpg'),
+    rota: '/backrooms',
   },
   {
     id: 2,
-    titulo: 'Digital Circus',
-    imagem: require('./assets/tadc.webp'), 
+    titulo: 'Telefone Preto 2',
+    imagem: require('../assets/images/telepre2.webp'),
+    rota: '/TelePre',
   },
 ];
 
-export default function App() {
+export default function MenuSuspense() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         
-        {/* Título da Categoria */}
-        <Text style={styles.tituloCategoria}>AVENTURA</Text>
+        <Text style={styles.tituloCategoria}>SUSPENSE</Text>
 
-        {/* Listagem dos Filmes */}
         {filmes.map((filme) => (
           <View key={filme.id} style={styles.cardFilme}>
             <Text style={styles.tituloFilme}>{filme.titulo}</Text>
@@ -38,11 +30,11 @@ export default function App() {
             <Image source={filme.imagem} style={styles.imagem} />
             
             <View style={styles.botaoContainer}>
-              <Button 
-                title="Avalie" 
-                color="#00008b" // Azul escuro para Aventura
-                onPress={() => Alert.alert("Sucesso", `Avaliado: ${filme.titulo}`)} 
-              />
+              <Link href={filme.rota as any} asChild>
+                <TouchableOpacity style={styles.botaoAvaliar}>
+                  <Text style={styles.textoBotao}>Acessar Filme</Text>
+                </TouchableOpacity>
+              </Link>
             </View>
           </View>
         ))}
@@ -55,7 +47,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000', // Fundo preto
+    backgroundColor: '#000000',
   },
   scrollContent: {
     paddingBottom: 40,
@@ -64,7 +56,7 @@ const styles = StyleSheet.create({
   tituloCategoria: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#00008b', 
+    color: '#8b0000',
     marginTop: 40,
     marginBottom: 30,
     textAlign: 'center',
@@ -72,7 +64,7 @@ const styles = StyleSheet.create({
   cardFilme: {
     alignItems: 'center',
     marginBottom: 40,
-    width: '100%',
+    width: '40%',
   },
   tituloFilme: {
     fontSize: 20,
@@ -89,5 +81,15 @@ const styles = StyleSheet.create({
   },
   botaoContainer: {
     width: '50%',
-  }
+  },
+  botaoAvaliar: {
+    backgroundColor: '#8b0000',
+    paddingVertical: 12,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  textoBotao: {
+    color: '#ffffff',
+    fontWeight: 'bold',
+  },
 });

@@ -3,11 +3,11 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#121212', // Cor escura igual à de image_601c1a.jpg
+        backgroundColor: '#121212', 
     },
     containerApp: {
         flex: 1,
-        backgroundColor: '#121212', // Fundo escuro para a tela toda
+        backgroundColor: '#121212', 
     },
     content: {
         padding: 20,
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     titulo: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#ffffff', // Texto em branco para contrastar com o fundo
+        color: '#ffffff', 
         marginTop: 20,
         marginBottom: 20,
         textAlign: 'center',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     subtitulo: {
         fontSize: 14,
         fontWeight: 'bold',
-        color: '#b22222', // Mantemos o vermelho para o "AVALIA"
+        color: '#b22222', 
         letterSpacing: 2,
         marginBottom: 5,
         marginTop: 10,
